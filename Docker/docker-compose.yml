@@ -8,11 +8,11 @@ services:
       - ../admin_users/:/usr/app/
     ports:
       - "8000:8000"
-      
+
   users_view:
     build: ./build/users_view
     command: nodemon app.js
     volumes:
       - ../users-view/:/app/
     ports:
-      - "8001:8001"
+      - "3000:3000"

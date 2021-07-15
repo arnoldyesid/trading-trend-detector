@@ -23,6 +23,5 @@ RUN apt-get install python3-pip -y
 # copy whole project to your docker home directory. COPY . $DockerHOME  
 # run this command to install all dependencies  
 RUN pip3 install -r requirements.txt
-# port where the Django app runs  
-EXPOSE 8000  
+
 
