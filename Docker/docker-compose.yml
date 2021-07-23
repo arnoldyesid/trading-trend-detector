@@ -8,6 +8,9 @@ services:
       - ../admin_users/:/usr/app/
     ports:
       - "8000:8000"
+    depends_on: [mysqldb]
+    links: 
+      - mysqldb
 
   users_view:
     build: ./build/users_view
@@ -16,3 +19,18 @@ services:
       - ../users-view/:/app/
     ports:
       - "3000:3000"
+  
+  mysqldb:
+    image: mysql
+    ports:
+    - 13306:3306
+    environment: 
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - MYSQL_DATABASE=admin
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+
+    volumes:
+    - ../persistence/mysql/:/var/lib/mysql-files
+    - ../persistence/mysql_config/:/etc/mysql

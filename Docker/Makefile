@@ -1,5 +1,5 @@
 # Make buld
-make-build:
+build-services:
 	# admin_users
 	cp ../admin_users/requirements.txt ./build/admin_users
 	docker-compose build admin_users

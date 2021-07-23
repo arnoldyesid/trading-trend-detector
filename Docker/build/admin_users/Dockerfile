@@ -21,7 +21,8 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update -y
 RUN apt-get install python3-pip -y
 # copy whole project to your docker home directory. COPY . $DockerHOME  
-# run this command to install all dependencies  
+# run this command to install all dependencies
+RUN apt-get install libmysqlclient-dev -y
 RUN pip3 install -r requirements.txt
 
 
